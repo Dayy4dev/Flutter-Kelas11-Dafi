@@ -1,7 +1,5 @@
-import 'package:first_flutter/kalkulator_page.dart';
-import 'package:first_flutter/login_clone.dart';
-import 'package:first_flutter/login_page.dart';
 import 'package:first_flutter/pages/login_clone_page.dart';
+import 'package:first_flutter/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:first_flutter/pages/calculator_page.dart';
 import 'package:get/route_manager.dart';
@@ -17,7 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: LoginClonePage(),
+      title: "My Learning App",
+      initialRoute: Routes.registration,
+      getPages: Routes.myPages,
     );
   }
 }
