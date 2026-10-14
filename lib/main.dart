@@ -1,7 +1,5 @@
-import 'package:first_flutter/pages/login_clone_page.dart';
 import 'package:first_flutter/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:first_flutter/pages/calculator_page.dart';
 import 'package:get/route_manager.dart';
 
 void main() {

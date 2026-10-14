@@ -1,91 +1,61 @@
-import 'package:first_flutter/models/makanan_models.dart';
+import 'package:first_flutter/components/info_section.dart';
+import 'package:first_flutter/components/price_text.dart';
+import 'package:first_flutter/components/rating_badge.dart';
+import 'package:first_flutter/controllers/detail_makanan_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class DetailMakananPage extends StatelessWidget {
-  const DetailMakananPage({super.key, required this.makanan});
-  final MakananModel makanan;
+class DetailmakananPage extends StatelessWidget {
+  DetailmakananPage({super.key});
+
+  final controller = Get.put(DetailMakananController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(makanan.namaMakanan)),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.network(
-              makanan.gambarMakanan,
-              width: double.infinity,
+      appBar: AppBar(title: Text(controller.namaMakanan)),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            child: Image.network(
+              controller.gambarMakanan,
+              width: 250,
               height: 250,
               fit: BoxFit.cover,
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    makanan.namaMakanan,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  controller.namaMakanan,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Rp ${makanan.hargaMakanan}',
-                    style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.green,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      const Icon(Icons.star, color: Colors.amber, size: 20),
-                      const SizedBox(width: 4),
-                      Text(
-                        '${makanan.rating}/5',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Deskripsi',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    makanan.deskripsi,
-                    style: const TextStyle(fontSize: 14, height: 1.5),
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Review',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    makanan.review,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontStyle: FontStyle.italic,
-                      height: 1.5,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 8),
+                PriceText(price: double.parse(controller.hargaMakanan)),
+                const SizedBox(height: 16),
+                RatingBadge(rating: controller.rating),
+                const SizedBox(height: 16),
+                InfoSection(
+                  title: "Deskripsi",
+                  content: controller.deskripsi,
+                ),
+                const SizedBox(height: 16),
+                InfoSection(
+                  title: "Review",
+                  content: controller.review,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

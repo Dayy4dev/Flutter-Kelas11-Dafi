@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class ListMakananController extends GetxController {
   // buat data datanya
-  List<MakananModel> listMakanan = [
+  RxList<MakananModel> listMakanan = [
     MakananModel(
       namaMakanan: "Nasi Goreng",
       hargaMakanan: "10000",
@@ -44,5 +44,5 @@ class ListMakananController extends GetxController {
       rating: 4,
       review: "Nasi kuning enak banget!",
     ),
-  ];
+  ].obs;
 }
