@@ -34,7 +34,7 @@ class ListMakananPage extends StatelessWidget {
                     // pindah ke detail page
                     // menggunakan Get.to
                     Get.toNamed(
-                      Routes.detail_makanan,
+                      Routes.detailMakanan,
                       arguments: {
                         'namaMakanan': makanan.namaMakanan,
                         'hargaMakanan': makanan.hargaMakanan,
