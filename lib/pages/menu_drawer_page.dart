@@ -18,25 +18,28 @@ class MenuDrawerPage extends StatelessWidget {
               ListTile(
                 title: Text('Home'),
                 leading: Icon(Icons.home),
+                selected: menuDrawerController.selectedIndex.value == 0,
                 onTap: () {
                   menuDrawerController.changePage(0);
-                  Navigator.pop(context);
+                  Get.back();
                 },
               ),
               ListTile(
                 title: Text('History'),
                 leading: Icon(Icons.history),
+                selected: menuDrawerController.selectedIndex.value == 1,
                 onTap: () {
                   menuDrawerController.changePage(1);
-                  Navigator.pop(context);
+                  Get.back();
                 },
               ),
               ListTile(
                 title: Text('Profile'),
                 leading: Icon(Icons.person),
+                selected: menuDrawerController.selectedIndex.value == 2,
                 onTap: () {
                   menuDrawerController.changePage(2);
-                  Navigator.pop(context);
+                  Get.back();
                 },
               ),
             ],
