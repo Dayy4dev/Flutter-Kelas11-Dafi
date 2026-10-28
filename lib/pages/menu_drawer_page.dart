@@ -9,36 +9,41 @@ class MenuDrawerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Menu Drawer")),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: Text('Home'),
-              onTap: () {
-                menuDrawerController.changePage(0);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('History'),
-              onTap: () {
-                menuDrawerController.changePage(1);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Profile'),
-              onTap: () {
-                menuDrawerController.changePage(2);
-                Navigator.pop(context);
-              },
-            ),
-          ],
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(title: Text("Menu Drawer")),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              ListTile(
+                title: Text('Home'),
+                onTap: () {
+                  menuDrawerController.changePage(0);
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('History'),
+                onTap: () {
+                  menuDrawerController.changePage(1);
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('Profile'),
+                onTap: () {
+                  menuDrawerController.changePage(2);
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
+        body: IndexedStack(
+          index: menuDrawerController.selectedIndex.value,
+          children: menuDrawerController.pages,
         ),
       ),
-      body: Obx(() => menuDrawerController.pages[menuDrawerController.selectedIndex.value]),
     );
   }
 }
