@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "My Learning App",
-      initialRoute: Routes.mainMenu,
+      initialRoute: Routes.menuDrawer,
       getPages: Routes.myPages,
     );
   }
