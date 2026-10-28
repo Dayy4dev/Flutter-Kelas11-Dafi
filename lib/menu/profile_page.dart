@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 20),
-            Center(child: CustomProfilePhoto()),
+            Center(child: CustomProfilePhoto(imageUrl: "https://media1.tenor.com/m/m11vauEEbcUAAAAd/meow-neko-arc.gif")),
             SizedBox(height: 40),
             CustomProfileItem(icon: Icons.person_outline, title: "Name", value: "Dafi"),
             CustomProfileItem(icon: Icons.info_outline, title: "About", value: "Hi"),

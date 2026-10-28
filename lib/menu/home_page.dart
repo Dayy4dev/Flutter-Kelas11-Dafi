@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               final makanan = controller.listMakanan[index];
               return SizedBox(
-                width: 220,
+                width: 320,
                 child: InkWell(
                 onTap: () {
                   // pindah ke detail page
@@ -44,6 +44,7 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.all(10),
                       child: ListTile(
+                        leading: Image.network(makanan.gambarMakanan),
                         title: Text(
                           makanan.namaMakanan,
                           style: TextStyle(fontSize: 16),

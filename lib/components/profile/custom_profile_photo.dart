@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomProfilePhoto extends StatelessWidget {
-  const CustomProfilePhoto({super.key});
+
+  final String imageUrl;
+
+  const CustomProfilePhoto({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -9,8 +12,7 @@ class CustomProfilePhoto extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 105,
-          backgroundColor: Color(0xFF667B88),
-          child: Icon(Icons.person, size: 150, color: Color(0xFFD0D8DE)),
+          backgroundImage: NetworkImage(imageUrl),
         ),
         Positioned(
           bottom: 0,

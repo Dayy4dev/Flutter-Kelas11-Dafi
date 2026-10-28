@@ -11,12 +11,13 @@ class MenuDrawerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        appBar: AppBar(title: Text("Menu Drawer")),
+        appBar: AppBar(title: Text("My App")),
         drawer: Drawer(
           child: ListView(
             children: [
               ListTile(
                 title: Text('Home'),
+                leading: Icon(Icons.home),
                 onTap: () {
                   menuDrawerController.changePage(0);
                   Navigator.pop(context);
@@ -24,6 +25,7 @@ class MenuDrawerPage extends StatelessWidget {
               ),
               ListTile(
                 title: Text('History'),
+                leading: Icon(Icons.history),
                 onTap: () {
                   menuDrawerController.changePage(1);
                   Navigator.pop(context);
@@ -31,6 +33,7 @@ class MenuDrawerPage extends StatelessWidget {
               ),
               ListTile(
                 title: Text('Profile'),
+                leading: Icon(Icons.person),
                 onTap: () {
                   menuDrawerController.changePage(2);
                   Navigator.pop(context);
